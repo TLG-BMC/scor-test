@@ -1,418 +1,127 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="h-full w-full">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="style.css">
-    <style>
-        @font-face {
-            font-family: 'Scor';
-            src: url('/fonts/GT-America-Standard-Regular.woff');
-        }
-
-        @font-face {
-            font-family: 'Scor-Bold';
-            src: url('/fonts/GT-America-Expanded-Bold.woff');
-        }
-
-        @keyframes spin{
-            from {
-                transform:rotate(0deg);
-            }
-            to {
-                transform:rotate(360deg);
-            }	
-        }
-
-
-        :root {
-            --main-color: rgb(147,211,181);
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html,body {
-            font-family: 'Scor';
-            width: 100%;
-            height: 100%;
-        }
-
-        .wrapper {
-            width: 80%;
-            height: 100%;
-            margin: 0 auto;
-            position: relative;
-        }
-
-        .slide {
-            width: 100%;
-            height: 100%;
-            position: relative;
-            background-repeat: no-repeat;
-        }
-
-        .intro-panel {
-            width: 100%;
-            height: 100%;
-            position: relative;
-            background: url(/images/banana/scorBanana.png) center center;
-            background-size: auto;
-            background-attachment: fixed;
-            background-repeat: no-repeat;
-            background-color: transparent;
-        }
-
-        .scor-logo {
-            width: 100%;
-            height: 100%;
-            position: absolute;
-            background: url(/images/logos/Scor_Logo_Horizontal.png) 100px top;
-            background-size: 150px;
-            background-attachment: fixed;
-            background-repeat: no-repeat;
-        }
-
-        .intro-panel-button {
-            bottom: 130px;
-            margin: auto;
-            position: absolute;
-            left: 0;
-            right: 0;
-            z-index: 3;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .outro-panel-button {
-            margin: auto;
-            z-index: 3;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-        .intro-panel-button span {
-            font-family: 'Scor-Bold';
-            padding: 11px 25px 13px;
-            letter-spacing: 0.25px;
-            background: transparent;
-            border: 2px solid var(--main-color);
-            color: var(--main-color);
-            font-size: 22px;
-            cursor: wait;
-            text-transform: uppercase;
-            transition: all .2s ease-in-out;
-        }
-
-        .outro-panel-button span {
-            font-family: 'Scor-Bold';
-            padding: 11px 25px 13px;
-            letter-spacing: 0.25px;
-            background: transparent;
-            border: 2px solid white;
-            color: white;
-            font-size: 22px;
-            cursor: pointer;
-            text-transform: uppercase;
-            transition: all .2s ease-in-out;
-        }
-
-        .intro-panel-button span:hover,
-        .outro-panel-button span:hover {
-            transition: all .2s ease-in-out;
-            color: #FEFEFE;
-            background-color: var(--main-color);
-            border-color: var(--main-color);
-        }
-
-        .intro-panel-button span:hover,.intro-panel-button span:active,.intro-panel-button span:visited,.intro-panel-button span:focus {
-            background-color: var(--main-color);
-            outline: none;
-            color: white;
-        }
-
-        .outro-panel-button span:hover,.outro-panel-button span:active,.outro-panel-button a:visited,.outro-panel-button span:focus {
-            background-color: var(--main-color);
-            outline: none;
-            color: white;
-        }
-
-        .outro-panel {
-            width: 100%;
-            height: 100%;
-            position: relative;
-            background: url(/images/pics/scor_picture_3.jpg) left top;
-            background-size: 50% 50%;
-            background-attachment: fixed;
-            background-repeat: repeat;
-            background-color: transparent;
-        }
-
-        .outro-panel .wrapper {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .transition-panel.transition1 {
-            width: 100%;
-            height: 50%;
-            position: relative;
-            background: var(--main-color);
-        }
-
-        .transition-panel.transition1 .wrapper {
-            width: 100%;
-            height: 100%;
-            position: relative;
-            background: url(/images/logos/Scor_Play_the_mountains-01.png) center center;
-            background-size: 100% auto;
-            background-attachment: fixed;
-            background-repeat: no-repeat;
-        }
-
-        .transition-panel.transition2 {
-            width: 100%;
-            height: 50%;
-            position: relative;
-            background: transparent;
-        }
-
-        .transition-panel.transition2 .wrapper {
-            width: 100%;
-            height: 100%;
-            position: relative;
-            background: url(/images/pics/scor_picture_1.jpg) center center;
-            background-size: 100% auto;
-            background-attachment: fixed;
-            background-repeat: no-repeat;
-        }
-
-        .transition-panel.transition3 {
-            width: 100%;
-            height: 50%;
-            position: relative;
-            background: var(--main-color);
-        }
-
-        .transition-panel.transition3 .wrapper {
-            width: 100%;
-            height: 100%;
-            position: relative;
-            background: url(/images/logos/SCOR_Typo.png) center center;
-            background-size: 100% auto;
-            background-attachment: fixed;
-            background-repeat: no-repeat;
-        }
-
-        .transition-panel.transition4 {
-            width: 100%;
-            height: 50%;
-            position: relative;
-            background: transparent;
-        }
-
-        .transition-panel.transition4 .wrapper {
-            width: 100%;
-            height: 100%;
-            position: relative;
-            background: url(/images/pics/scor_picture_2.jpg) center center;
-            background-size: 100% auto;
-            background-attachment: fixed;
-            background-repeat: no-repeat;
-        }
-
-        #slide1 {
-            background: url(/images/slides/4060_LT_GX_pur_pur_pur.png) center center no-repeat;
-            background-size: 60% auto;
-            background-attachment: fixed;
-        }
-
-        #slide2 {
-            background: url(/images/slides/4060_LT_NX_sla_sla_sla.png) center center no-repeat;
-            background-size: 60% auto;
-            background-attachment: fixed;
-        }
-
-        #slide3 {
-            background: url(/images/slides/4060_ST_GX_min_min_min.png) center center no-repeat;
-            background-size: 60% auto;
-            background-attachment: fixed;
-        }
-
-        #slide4 {
-            background: url(/images/slides/4060_ST_NX_sla_sla_sla.png) center center no-repeat;
-            background-size: 60% auto;
-            background-attachment: fixed;
-        }
-
-        #slide5 {
-            background: url(/images/slides/4060_Z_LT_SLX_sla_sla_sla.png) center center no-repeat;
-            background-size: 60% auto;
-            background-attachment: fixed;
-        }
-
-        #slide6 {
-            background: url(/images/slides/4060_Z_LT_XT_pur_pur_pur.png) center center no-repeat;
-            background-size: 60% auto;
-            background-attachment: fixed;
-        }
-
-        #slide7 {
-            background: url(/images/slides/4060_Z_ST_SLX_sla_sla_sla.png) center center no-repeat;
-            background-size: 60% auto;
-            background-attachment: fixed;
-        }
-
-        #slide8 {
-            background: url(/images/slides/SCOR-4060-Z-ST-XT.png) center center no-repeat;
-            background-size: 60% auto;
-            background-attachment: fixed;
-        }
-
-        .bike-info {
-            display: flex;
-            flex-direction: column-reverse;
-        }
-
-        .bike-name {
-            font-family: 'Scor-Bold';
-            font-size: 1.5rem;
-
-        }
-
-        .bike-text {
-            font-family: 'Scor';
-            font-style: italic;
-        }
-    </style>
+    <link rel="stylesheet" href="tailwind.css">
 </head>
 
-<body>
-    <div class="intro-panel">
-        <div class="scor-logo"></div>
-        <div class="wrapper">
-            <div class="intro-panel-button">
-                <span>Scroll me down</span>
+<body class="h-full w-full">
+    <div class="w-full h-full relative bg-[url('/images/banana/scorBanana.png')] bg-center bg-auto bg-no-repeat bg-fixed bg-transparent">
+        <div class="w-full h-full absolute bg-[url('/images/logos/Scor_Logo_Horizontal.png')] bg-[length:150px] bg-[100px_top] bg-no-repeat bg-fixed"></div>
+        <div class="container mx-auto h-full relative">
+            <div class="flex items-center justify-center absolute left-0 right-0 bottom-32 m-auto z-10">
+                <span class="hover:bg-scor hover:text-white transition ease-in-out duration-200 font-scorbold px-3.5 py-4 border-solid border-scor border-2 cursor-s-resize text-2xl uppercase text-scor">Scroll me down</span>
             </div>
         </div>
     </div>
 
-    <div class="transition-panel transition1">
-        <div class="wrapper"></div>
+    <div class="w-full h-2/5 relative bg-scor">
+        <div class="w-full h-full relative bg-[url('/images/logos/Scor_Play_the_mountains-01.png')] bg-center bg-contain bg-no-repeat bg-fixed"></div>
     </div>
 
-    <section class="slide" id="slide1">
-        <div class="wrapper">
-            <div class="bike-info">
-                <div class="bike-name">4060 LT GX</div>
-                <div class="bike-text">
+    <section class="h-full w-full relative bg-no-repeat bg-[url('/images/slides/4060_LT_GX_pur_pur_pur.png')] bg-fixed bg-center bg-[length:60%_auto]">
+        <div class="container mx-auto h-full relative">
+            <div>
+                <div class="text-2xl font-scorbold">4060 LT GX</div>
+                <div class="font-scor italic"> 
                     One of the most playful and fun-to-ride big enduros we've tried.
                 </div>
             </div>
         </div>
     </section>
-    <section class="slide" id="slide2">
-        <div class="wrapper">
-            <div class="bike-info">
-                <div class="bike-name">4060 LT NX</div>
-                <div class="bike-text">
+    <section class="h-full w-full relative bg-no-repeat bg-[url('/images/slides/4060_LT_NX_sla_sla_sla.png')] bg-fixed bg-center bg-[length:60%_auto]">
+        <div class="container mx-auto h-full relative">
+            <div>
+                <div class="text-2xl font-scorbold">4060 LT NX</div>
+                <div class="font-scor italic">
                     A real big mountain bike with insane capabilities.
                 </div>
             </div>
         </div>
     </section>
 
-    <div class="transition-panel transition2">
-        <div class="wrapper"></div>
+    <div class="w-full h-1/2 relative bg-transparent">
+        <div class="w-full h-full relative bg-[url('/images/pics/scor_picture_1.jpg')] bg-center bg-cover bg-no-repeat bg-fixed"></div>
     </div>
 
-    <section class="slide" id="slide3">
-        <div class="wrapper">
-            <div class="bike-info">
-                <div class="bike-name">4060 ST GX</div>
-                <div class="bike-text">
+    <section class="h-full w-full relative bg-no-repeat bg-[url('/images/slides/4060_ST_GX_min_min_min.png')] bg-fixed bg-center bg-[length:60%_auto]">
+        <div class="container mx-auto h-full relative">
+            <div>
+                <div class="text-2xl font-scorbold">4060 ST GX</div>
+                <div class="font-scor italic">
                     Very engaging ride - it's fun and fast.
                 </div>
             </div>
         </div>
     </section> 
-    <section class="slide" id="slide4">
-        <div class="wrapper">
-            <div class="bike-info">
-                <div class="bike-name">4060 ST NX</div>
-                <div class="bike-text">
+    <section class="h-full w-full relative bg-no-repeat bg-[url('/images/slides/4060_ST_NX_sla_sla_sla.png')] bg-fixed bg-center bg-[length:60%_auto]">
+        <div class="container mx-auto h-full relative">
+            <div>
+                <div class="text-2xl font-scorbold">4060 ST NX</div>
+                <div class="font-scor italic">
                     Both variants were able to convince with their clever details and a lot of driving fun.
                 </div>
             </div>
         </div>
     </section>
 
-    <div class="transition-panel transition3">
-        <div class="wrapper"></div>
+    <div class="w-full h-2/5 relative bg-scor">
+        <div class="w-full h-full relative bg-[url('/images/logos/SCOR_Typo.png')] bg-center bg-contain bg-no-repeat bg-fixed"></div>
     </div>
 
-    <section class="slide" id="slide5">
-        <div class="wrapper">
-            <div class="bike-info">
-                <div class="bike-name">4060 Z LT SLX</div>
-                <div class="bike-text">
+    <section class="h-full w-full relative bg-no-repeat bg-[url('/images/slides/4060_Z_LT_SLX_sla_sla_sla.png')] bg-fixed bg-center bg-[length:60%_auto]">
+        <div class="container mx-auto h-full relative">
+            <div>
+                <div class="text-2xl font-scorbold">4060 Z LT SLX</div>
+                <div class="font-scor italic">
                     Oh look, some random text I wrote to fill in this part of the website.
                 </div>
             </div>
         </div>
     </section> 
-    <section class="slide" id="slide6">
-        <div class="wrapper">
-            <div class="bike-info">
-                <div class="bike-name">4060 Z LT XT</div>
-                <div class="bike-text">
+    <section class="h-full w-full relative bg-no-repeat bg-[url('/images/slides/4060_Z_LT_XT_pur_pur_pur.png')] bg-fixed bg-center bg-[length:60%_auto]">
+        <div class="container mx-auto h-full relative">
+            <div>
+                <div class="text-2xl font-scorbold">4060 Z LT XT</div>
+                <div class="font-scor italic">
                     very awesome bike! So playful! 
                 </div>
             </div>
         </div>
     </section>
 
-    <div class="transition-panel transition4">
-        <div class="wrapper"></div>
+    <div class="w-full h-2/5 relative bg-transparent">
+        <div class="w-full h-full relative bg-[url('/images/pics/scor_picture_2.jpg')] bg-center bg-cover bg-no-repeat bg-fixed"></div>
     </div>
 
-    <section class="slide" id="slide7">
-        <div class="wrapper">
-            <div class="bike-info">
-                <div class="bike-name">4060 Z ST SLX</div>
-                <div class="bike-text">
+    <section class="h-full w-full relative bg-no-repeat bg-[url('/images/slides/4060_Z_ST_SLX_sla_sla_sla.png')] bg-fixed bg-center bg-[length:60%_auto]">
+        <div class="container mx-auto h-full relative">
+            <div>
+                <div class="text-2xl font-scorbold">4060 Z ST SLX</div>
+                <div class="font-scor italic">
                     Oh look, some random text I wrote to fill in this part of the website.
                 </div>
             </div>
         </div>
     </section>
-    <section class="slide" id="slide8">
-        <div class="wrapper">
-            <div class="bike-info">
-                <div class="bike-name">4060 Z ST XT</div>
-                <div class="bike-text">
+    <section class="h-full w-full relative bg-no-repeat bg-[url('/images/slides/SCOR-4060-Z-ST-XT.png')] bg-fixed bg-center bg-[length:60%_auto]">
+        <div class="container mx-auto h-full relative">
+            <div>
+                <div class="text-2xl font-scorbold">4060 Z ST XT</div>
+                <div class="font-scor italic">
                     This e-bike generates pure riding pleasure. 
                 </div>
             </div>
         </div>
     </section>
 
-    <div class="outro-panel">
-        <div class="scor-logo"></div>
-        <div class="wrapper">
-            <div class="outro-panel-button">
-                <span><a href="https://www.scor-mtb.com/" target="_blank">Take me to the website</a></span>
-            </div> 
+    <div class="h-full w-full relative">
+        <div class="flex items-center justify-center w-full h-full relative bg-fixed bg-transparent bg-repeat bg-left-top bg-[url('/images/pics/scor_picture_3.jpg')] bg-[length:50%_50%]">
+            <span class="hover:bg-scor hover:border-scor transition ease-in-out duration-200 font-scorbold px-3.5 py-4 border-solid border-white border-2 cursor-pointer text-2xl uppercase text-white visited:text-white"><a href="https://www.scor-mtb.com/" target="_blank">Take me to the website</a></span>
         </div>
     </div>
-
-    <script src="scor.js"></script>
 </body>
 </html>
